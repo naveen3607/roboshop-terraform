@@ -32,3 +32,12 @@ tags = {
 }
 
 env = "dev"
+
+alb = {
+  public = {
+    lb_type = "internet-facing"
+  }
+  private = {
+    lb_type = "internal"
+  }
+}

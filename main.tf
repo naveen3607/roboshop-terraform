@@ -10,6 +10,15 @@ module "vpc" {
   env = var.env
 }
 
+module "alb" {
+  source            = "git::https://github.com/naveen3607/load-balancer-module-terraform.git"
+  for_each          = var.alb
+  lb_type = each.value["lb_type"]
+  tags = var.tags
+  env = var.env
+}
+
+
 output "vpc" {
   value = module.vpc
 }
