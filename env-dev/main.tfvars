@@ -28,6 +28,7 @@ tags = {
   business_unit = "Ecommerce"
   project_name = "robotshop"
   cost_center = "ecom_rs"
+  created_by = "terraform"
 }
 
 env = "dev"
