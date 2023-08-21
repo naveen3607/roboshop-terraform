@@ -13,9 +13,13 @@ module "vpc" {
 module "alb" {
   source            = "git::https://github.com/naveen3607/load-balancer-module-terraform.git"
   for_each          = var.alb
+  internal = each.value["internal"]
   lb_type = each.value["lb_type"]
+  sg_ingress_cidr = each.value["sg_ingress_cidr"]
+  vpc_id = each.value["internal"] ? lookup(lookup(module.vpc, "main", null), "vpc_id", null) : var.default_vpc_id
   tags = var.tags
   env = var.env
+  sg_port = each.value["sg_port"]
 }
 
 
