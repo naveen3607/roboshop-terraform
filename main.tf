@@ -22,8 +22,3 @@ module "vpc" {
 #  env = var.env
 #  sg_port = each.value["sg_port"]
 #}
-
-
-output "vpc" {
-  value = module.vpc
-}
