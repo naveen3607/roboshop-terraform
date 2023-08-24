@@ -1,5 +1,5 @@
 module "vpc" {
-  source            = "git::https://github.com/raghudevopsb74/tf-module-vpc.git"
+  source            = "git::https://github.com/naveen3607/tf-module-vpc.git"
   for_each          = var.vpc
   cidr = each.value["cidr"]
   subnets = each.value["subnets"]
@@ -11,7 +11,7 @@ module "vpc" {
 }
 
 module "alb" {
-  source            = "git::https://github.com/raghudevopsb74/tf-module-alb.git"
+  source            = "git::https://github.com/naveen3607/tf-module-alb.git"
   for_each          = var.alb
   internal = each.value["internal"]
   lb_type = each.value["lb_type"]
