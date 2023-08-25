@@ -56,4 +56,6 @@ module "rds" {
   rds_type = each.value["rds_type"]
   db_port = each.value["db_port"]
   engine = each.value["engine"]
+  instance_class = each.value["instance_class"]
+  instance_count = each.value["instance_count"]
 }

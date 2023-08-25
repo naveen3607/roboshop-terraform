@@ -69,5 +69,7 @@ rds = {
     db_port = 3306
     engine = "aurora-mysql"
     skip_final_snapshot = true
+    instance_count = 1
+    instance_class = "db.t3.small"
   }
 }
