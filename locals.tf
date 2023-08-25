@@ -1,3 +1,5 @@
  locals {
-   tags = merge(var.tags, { tf-module-name = "alb" }, { env = var.env })
+   vpc_id = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
+   app_subnets = [ for k, v in lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), "app", null), "subnet_ids", null) : v.id ]
+   db_subnets = [ for k, v in lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), "db", null), "subnet_ids", null) : v.id ]
  }
