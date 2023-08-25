@@ -36,4 +36,6 @@ module "docdb" {
   vpc_id = local.vpc_id
   tags = var.tags
   env = var.env
+  instance_count = each.value["instance_count"]
+  instance_class= each.value["instance_class"]
 }
