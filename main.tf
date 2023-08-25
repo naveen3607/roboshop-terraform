@@ -59,3 +59,20 @@ module "rds" {
   instance_class = each.value["instance_class"]
   instance_count = each.value["instance_count"]
 }
+
+module "elasticache" {
+  source            = "git::https://github.com/naveen3607/tf-module-elasticache.git"
+  tags = var.tags
+  env = var.env
+  for_each          = var.elasticache
+  subnet_ids = local.db_subnets
+  engine_version = each.value["engine_version"]
+  family = each.value["family"]
+  sg_ingress_cidr = local.app_subnet_cidr
+  vpc_id = local.vpc_id
+  elasticache_type = each.value["elasticache_type"]
+  port = each.value["port"]
+  engine = each.value["engine"]
+  node_type = each.value["node_type"]
+  num_cache_nodes = each.value["num_cache_nodes"]
+}
