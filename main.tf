@@ -39,3 +39,22 @@ module "docdb" {
   instance_count = each.value["instance_count"]
   instance_class= each.value["instance_class"]
 }
+
+module "docdb" {
+  source            = "git::https://github.com/naveen3607/tf-module-rds.git"
+  tags = var.tags
+  env = var.env
+  for_each          = var.rds
+  subnet_ids = local.db_subnets
+  engine_version = each.value["engine_version"]
+  engine_family = each.value["engine_family"]
+  backup_retention_period = each.value["backup_retention_period"]
+  preferred_backup_window = each.value["preferred_backup_window"]
+  sg_ingress_cidr = local.app_subnet_cidr
+  vpc_id = local.vpc_id
+  instance_count = each.value["instance_count"]
+  instance_class= each.value["instance_class"]
+  rds_type = each.value["rds_type"]
+  db_port = each.value["db_port"]
+  engine = each.value["engine"]
+}
