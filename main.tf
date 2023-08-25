@@ -40,7 +40,7 @@ module "docdb" {
   instance_class= each.value["instance_class"]
 }
 
-module "docdb" {
+module "rds" {
   source            = "git::https://github.com/naveen3607/tf-module-rds.git"
   tags = var.tags
   env = var.env
