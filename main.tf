@@ -26,7 +26,7 @@ module "alb" {
 module "docdb" {
   source            = "git::https://github.com/naveen3607/tf-module-docdb.git"
   for_each          = var.docdb
-  subnets = each.value["subnets"]
+  subnet_ids = local.db_subnets
   tags = var.tags
   env = var.env
 }
