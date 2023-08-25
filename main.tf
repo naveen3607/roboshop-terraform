@@ -53,8 +53,6 @@ module "rds" {
   skip_final_snapshot     = each.value["skip_final_snapshot"]
   sg_ingress_cidr = local.app_subnet_cidr
   vpc_id = local.vpc_id
-  instance_count = each.value["instance_count"]
-  instance_class= each.value["instance_class"]
   rds_type = each.value["rds_type"]
   db_port = each.value["db_port"]
   engine = each.value["engine"]
