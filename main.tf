@@ -97,7 +97,7 @@ module "app" {
   for_each          = var.apps
   component = each.name
   port = each.value["port"]
-  subnet_ids = local.db_subnets
+  subnet_ids = local.app_subnets
   sg_ingress_cidr = local.app_subnet_cidr
   vpc_id = local.vpc_id
   ssh_ingress_cidr = var.ssh_ingress_cidr
