@@ -95,7 +95,7 @@ module "app" {
   tags = var.tags
   env = var.env
   for_each          = var.apps
-  component = each.name
+  component = each.key
   port = each.value["port"]
   subnet_ids = local.app_subnets
   sg_ingress_cidr = local.app_subnet_cidr
