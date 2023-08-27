@@ -106,4 +106,7 @@ module "app" {
   desired_capacity = each.value["desired_capacity"]
   max_size = each.value["max_size"]
   min_size = each.value["min_size"]
+
+  alb_name = lookup(module.alb, "private", null)
+
 }
