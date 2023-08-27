@@ -107,6 +107,6 @@ module "app" {
   max_size = each.value["max_size"]
   min_size = each.value["min_size"]
 
-  alb_name = lookup(module.alb, "private", null)
+  alb_name = lookup(lookup(module.alb, "private", null), "dns_name", null)
 
 }
