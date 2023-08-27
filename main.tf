@@ -87,4 +87,5 @@ module "rabbitmq" {
   vpc_id = local.vpc_id
   instance_type = each.value["instance_type"]
   ssh_ingress_cidr = each.value["ssh_ingress_cidr"]
+  zone_id = var.zone_id
 }
