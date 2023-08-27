@@ -86,6 +86,21 @@ module "rabbitmq" {
   sg_ingress_cidr = local.app_subnet_cidr
   vpc_id = local.vpc_id
   instance_type = each.value["instance_type"]
-  ssh_ingress_cidr = each.value["ssh_ingress_cidr"]
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+  zone_id = var.zone_id
+}
+
+module "app" {
+  source            = "git::https://github.com/naveen3607/tf-module-app.git"
+  tags = var.tags
+  env = var.env
+  for_each          = var.apps
+  component = each.name
+  port = each.value["port"]
+  subnet_ids = local.db_subnets
+  sg_ingress_cidr = local.app_subnet_cidr
+  vpc_id = local.vpc_id
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+  instance_type = each.value["instance_type"]
   zone_id = var.zone_id
 }
