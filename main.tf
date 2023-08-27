@@ -101,6 +101,5 @@ module "app" {
   sg_ingress_cidr = local.app_subnet_cidr
   vpc_id = local.vpc_id
   ssh_ingress_cidr = var.ssh_ingress_cidr
-  instance_type = each.value["instance_type"]
   zone_id = var.zone_id
 }
