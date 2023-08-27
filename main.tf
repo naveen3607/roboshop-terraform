@@ -76,3 +76,15 @@ module "elasticache" {
   node_type = each.value["node_type"]
   num_cache_nodes = each.value["num_cache_nodes"]
 }
+
+module "rabbitmq" {
+  source            = "git::https://github.com/naveen3607/tf-module-rabbitmq.git"
+  tags = var.tags
+  env = var.env
+  for_each          = var.rabbitmq
+  subnet_ids = local.db_subnets
+  sg_ingress_cidr = local.app_subnet_cidr
+  vpc_id = local.vpc_id
+  instance_type = each.value["instance_type"]
+  ssh_ingress_cidr = each.value["ssh_ingress_cidr"]
+}
