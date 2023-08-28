@@ -100,6 +100,7 @@ module "app" {
   instance_type = each.value["instance_type"]
   subnet_ids = local.app_subnets
   sg_ingress_cidr = local.app_subnet_cidr
+  default_vpc_id = var.default_vpc_id
   vpc_id = local.vpc_id
   ssh_ingress_cidr = var.ssh_ingress_cidr
   zone_id = var.zone_id
