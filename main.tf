@@ -91,7 +91,7 @@ module "rabbitmq" {
 }
 
 module "app" {
-  source            = "git::https://github.com/raghudevopsb74/tf-module-app.git"
+  source            = "git::https://github.com/naveen3607/tf-module-app.git"
   tags = var.tags
   env = var.env
   for_each          = var.apps
