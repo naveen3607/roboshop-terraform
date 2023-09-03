@@ -147,7 +147,7 @@ apps = {
     max_size = 4
     min_size = 1
     lb_priority = 6
-    parameters = []
+    parameters = ["rabbitmq"]
   }
   dispatch = {
     instance_type = "t3.micro"
