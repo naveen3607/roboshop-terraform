@@ -104,6 +104,7 @@ module "app" {
   default_vpc_id = var.default_vpc_id
   vpc_id = local.vpc_id
   ssh_ingress_cidr = var.ssh_ingress_cidr
+  monitoring_ingress_cidr = var.monitoring_ingress_cidr
   zone_id = var.zone_id
   desired_capacity = each.value["desired_capacity"]
   max_size = each.value["max_size"]
