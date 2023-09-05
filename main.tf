@@ -93,7 +93,7 @@ module "rabbitmq" {
 module "app" {
   depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source            = "git::https://github.com/naveen3607/tf-module-app.git"
-  tags = var.tags
+  tags = merge(var.tags, each.value["tags"])
   env = var.env
   for_each          = var.apps
   component = each.key
