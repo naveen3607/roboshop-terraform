@@ -78,7 +78,6 @@ module "elasticache" {
   engine = each.value["engine"]
   node_type = each.value["node_type"]
   num_cache_nodes = each.value["num_cache_nodes"]
-  kms_key_id = var.kms_key_id
 }
 
 module "rabbitmq" {
