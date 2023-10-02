@@ -39,6 +39,7 @@ module "docdb" {
   env = var.env
   instance_count = each.value["instance_count"]
   instance_class= each.value["instance_class"]
+  kms_key_id = var.kms_key_id
 }
 
 module "rds" {
@@ -59,6 +60,7 @@ module "rds" {
   engine = each.value["engine"]
   instance_class = each.value["instance_class"]
   instance_count = each.value["instance_count"]
+  kms_key_id = var.kms_key_id
 }
 
 module "elasticache" {
@@ -76,6 +78,7 @@ module "elasticache" {
   engine = each.value["engine"]
   node_type = each.value["node_type"]
   num_cache_nodes = each.value["num_cache_nodes"]
+  kms_key_id = var.kms_key_id
 }
 
 module "rabbitmq" {

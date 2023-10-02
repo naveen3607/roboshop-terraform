@@ -25,6 +25,7 @@ zone_id = "Z06537442IUXZV0J4PKFE"
 ssh_ingress_cidr = ["172.31.0.0/16"]
 monitoring_ingress_cidr = ["172.31.0.0/16"]
 acm_certificate_arn = "arn:aws:acm:us-east-1:207153251982:certificate/107eeb19-7228-4afd-96ea-b2da2468f651"
+kms_key_id = "arn:aws:kms:us-east-1:207153251982:key/91ab5fca-9ae7-4c4e-9dd8-f1e1ee3da95f"
 
 tags = {
   company_name = "ABC Tech"
