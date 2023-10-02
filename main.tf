@@ -92,6 +92,7 @@ module "rabbitmq" {
   instance_type = each.value["instance_type"]
   ssh_ingress_cidr = var.ssh_ingress_cidr
   zone_id = var.zone_id
+  kms_key_id = var.kms_key_id
 }
 
 module "app" {
@@ -115,6 +116,7 @@ module "app" {
   min_size = each.value["min_size"]
   lb_priority = each.value["lb_priority"]
   parameters = each.value["parameters"]
+  kms_key_id = var.kms_key_id
   public_alb_name = lookup(lookup(lookup(module.alb, "public", null), "alb", null),"dns_name", null)
   private_alb_name = lookup(lookup(lookup(module.alb, "private", null), "alb", null),"dns_name", null)
   private_listener = lookup(lookup(lookup(module.alb, "private", null), "listener", null),"arn", null)
