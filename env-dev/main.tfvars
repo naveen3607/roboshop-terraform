@@ -24,6 +24,7 @@ default_vpc_route_table_id = "rtb-0555ec001edd385f2"
 zone_id = "Z06537442IUXZV0J4PKFE"
 ssh_ingress_cidr = ["172.31.0.0/16"]
 monitoring_ingress_cidr = ["172.31.0.0/16"]
+arm_certificate_arn = "arn:aws:acm:us-east-1:207153251982:certificate/107eeb19-7228-4afd-96ea-b2da2468f651"
 
 tags = {
   company_name = "ABC Tech"
