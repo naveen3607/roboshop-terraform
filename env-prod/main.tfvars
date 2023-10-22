@@ -99,7 +99,7 @@ rabbitmq = {
 
 apps = {
   frontend = {
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
     port = 80
     desired_capacity = 2
     max_size = 10
@@ -119,7 +119,7 @@ apps = {
     tags = {}
   }
   user = {
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
     port = 8080
     desired_capacity = 2
     max_size = 10
@@ -129,7 +129,7 @@ apps = {
     tags = {}
   }
   cart = {
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
     port = 8080
     desired_capacity = 2
     max_size = 10
@@ -149,7 +149,7 @@ apps = {
     tags = {}
   }
   payment = {
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
     port = 8080
     desired_capacity = 2
     max_size = 10
